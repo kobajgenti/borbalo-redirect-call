@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="0;url=tel:+995322055015">
+<title>Initiating Call... | ზარის დაწყება...</title>
+<style>
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'DejaVu Sans', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F1F4F5;
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+}
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.logo {
+    width: 40px;
+    height: auto;
+}
+.phone-icon {
+    font-size: 2.5rem;
+    color: #2BC6BE;
+}
+h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #000000;
+}
+.phone-number {
+    font-size: 1.25rem;
+    color: #000000;
+    margin: 1rem 0;
+    direction: ltr;
+}
+.manual-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #2BC6BE;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+.manual-link:hover {
+    background-color: #249e98;
+}
+.loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(43, 198, 190, 0.3);
+    border-radius: 50%;
+    border-top-color: #2BC6BE;
+    animation: spin 1s ease-in-out infinite;
+    margin: 1rem 0;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.hidden {
+    display: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="https://borbalo.ge/static/media/logo.165fc0370d23c53aa529.jpg" alt="Borbalo Logo" class="logo">
+        <div class="phone-icon">📞</div>
+    </div>
+    <div id="en-content">
+        <h1>Initiating Call</h1>
+        <div class="loading"></div>
+        <div class="phone-number">+995 322 055 015</div>
+        <p>Your call is being connected...</p>
+        <a href="tel:+995322055015" class="manual-link">Call Manually</a>
+    </div>
+    <div id="ka-content" class="hidden">
+        <h1>ზარის დაწყება</h1>
+        <div class="loading"></div>
+        <div class="phone-number">+995 322 055 015</div>
+        <p>თქვენი ზარი მიმდინარეობს...</p>
+        <a href="tel:+995322055015" class="manual-link">ხელით დარეკვა</a>
+    </div>
+</div>
+
+<script>
+function detectLanguage() {
+    const userLanguage = navigator.language || navigator.userLanguage;
+    const isGeorgian = userLanguage.toLowerCase().startsWith('ka');
+    
+    document.getElementById('en-content').classList.toggle('hidden', isGeorgian);
+    document.getElementById('ka-content').classList.toggle('hidden', !isGeorgian);
+}
+
+// Run language detection on page load
+document.addEventListener('DOMContentLoaded', detectLanguage);
+</script>
+</body>
+</html>
